@@ -4,7 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WorkDay extends TimeIntervalInDay{
+public class WorkDay extends TimeIntervalInDay {
 
     private List<Shift> _dailyShifts;
     private final String _dayOfWeek;

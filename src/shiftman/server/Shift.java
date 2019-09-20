@@ -5,13 +5,15 @@ import java.util.List;
 
 public class Shift extends TimeIntervalInDay {
 
-    private int _minimumWorkers;
+    private final String _day;
+    private final int _minimumWorkers;
     private List<Staff> _shiftWorkers;
 
-    public Shift( String startTime, String endTime,String minimumWorkers) {
+    public Shift( String day ,String startTime, String endTime,String minimumWorkers) {
         super(startTime, endTime);
         _minimumWorkers = Integer.parseInt(minimumWorkers);
         _shiftWorkers = new ArrayList();
+        _day=day;
     }
 
     public void assignStaff(Staff staff){
@@ -43,6 +45,6 @@ public class Shift extends TimeIntervalInDay {
 
     @Override
     public String toString() {
-        return _startTime + " " + _endTime;
+        return _day + " " + _startTime + "-" + _endTime;
     }
 }

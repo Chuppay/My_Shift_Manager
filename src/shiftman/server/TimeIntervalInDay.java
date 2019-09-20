@@ -1,8 +1,9 @@
 package shiftman.server;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public abstract class TimeIntervalInDay {
+public abstract class TimeIntervalInDay implements Serializable {
 
     protected final LocalTime _startTime;
     protected final LocalTime _endTime;

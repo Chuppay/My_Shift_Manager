@@ -1,11 +1,11 @@
 package shiftman.server;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.ArrayList;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public class ShiftManagerServer implements ShiftManager {
+public class ShiftManagerServer implements ShiftManager, Serializable {
 
     private String _shopName;
     private StaffRegistry _registeredStaff;
@@ -27,8 +27,8 @@ public class ShiftManagerServer implements ShiftManager {
     @Override
     public void setWorkingHours(String dayOfWeek, String startTime, String endTime) {
         Boolean isValidDay = false;
-        for (DayOfWeek days : DayOfWeek.values()) {
-            if ((days.toString()).equals(dayOfWeek)) {
+        for (DayOfWeek day : DayOfWeek.values()) {
+            if ((day.toString()).equals(dayOfWeek)) {
                 isValidDay = true;
             }
         }

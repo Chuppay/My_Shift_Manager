@@ -1,9 +1,10 @@
 package shiftman.server;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Staff {
+public class Staff implements Serializable {
 
     private final String _givenName;
     private final String _familyName;

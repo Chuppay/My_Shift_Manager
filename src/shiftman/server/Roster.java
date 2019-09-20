@@ -1,9 +1,10 @@
 package shiftman.server;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Roster {
+public class Roster implements Serializable {
 
     private List<WorkDay> _workDays;
 
@@ -21,7 +22,8 @@ public class Roster {
                 if (workDay.isInvalidShiftTime(startTime, endTime)) {
                     throw new IllegalArgumentException("Shift time supplied is not valid");
                 } else {
-                    workDay.addShift(new Shift(startTime, endTime, minimumWorkers));
+                    workDay.addShift(new Shift(dayOfWeek,startTime, endTime, minimumWorkers));
+                    return;
                 }
             }
         }
@@ -32,7 +34,7 @@ public class Roster {
         for (WorkDay workday : _workDays) {
             List<Shift> shifts = workday.getShifts();
             for (Shift shift : shifts) {
-                if (shift.toString().equals(startTime + " " + endTime)) {
+                if (shift.toString().equals(dayOfWeek + " " + startTime + "-" + endTime)) {
                     return shift;
                 }
             }
